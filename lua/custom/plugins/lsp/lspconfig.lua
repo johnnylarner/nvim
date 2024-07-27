@@ -64,6 +64,10 @@ return {
       vim.o.updatetime = 250
       vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
+      -- Enable easy LSP status checks
+      vim.keymap.set('n', '<Leader>ld', ':LspInfo', { desc = '[D]isplay information' })
+      vim.keymap.set('n', '<Leader>lr', ':LspRestart', { desc = '[R]estart the current server' })
+
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
