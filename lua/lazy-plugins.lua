@@ -49,6 +49,8 @@ require('lazy').setup({
 
   require 'custom/plugins/lsp/rustanalyzer',
 
+  require 'custom/plugins/lsp/typescript_lsp',
+
   require 'custom/plugins/debug/debug',
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
