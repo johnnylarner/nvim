@@ -57,11 +57,49 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+        --   layout_config = {
+        --     vertical = { width = 0.5 },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          help_tags = {
+            theme = 'dropdown',
+          },
+          keymaps = {
+            theme = 'dropdown',
+          },
+          find_files = {
+            theme = 'dropdown',
+          },
+          builtin = {
+            theme = 'dropdown',
+          },
+          grep_string = {
+            theme = 'dropdown',
+          },
+          live_grep = {
+            theme = 'dropdown',
+          },
+          diagnostics = {
+            theme = 'dropdown',
+          },
+          resume = {
+            theme = 'dropdown',
+          },
+          buffers = {
+            theme = 'dropdown',
+          },
+          oldfiles = {
+            theme = 'dropdown',
+          },
+          command_history = {
+            theme = 'dropdown',
+          },
+          git_files = {
+            theme = 'dropdown',
+            winblend = 10,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -83,10 +121,10 @@ return {
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+      vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = 'Search current buffers' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<Leader>sc', builtin.command_history, { noremap = true, desc = '[C]ommand history' })
       vim.keymap.set('n', '<Leader>st', builtin.git_files, { noremap = true, desc = '[T]racked files' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
