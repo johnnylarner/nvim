@@ -10,7 +10,11 @@ return {
     -- Load the colorscheme here.
     -- Like many other themes, this one has different styles, and you could load
     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-    vim.o.background = 'light' -- or "light" for light mode
+    if os.getenv 'neovim_theme' == 'light' then
+      vim.o.background = 'light' -- or "light" for light mode
+    else
+      vim.o.background = 'dark' -- or "light" for light mode
+    end
     vim.cmd [[colorscheme gruvbox]]
 
     -- You can configure highlights by doing something like:
