@@ -88,6 +88,7 @@ return {
           },
           buffers = {
             theme = 'dropdown',
+            previewer = false,
           },
           oldfiles = {
             theme = 'dropdown',
