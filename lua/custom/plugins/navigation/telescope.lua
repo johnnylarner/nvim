@@ -111,6 +111,7 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'noice')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -130,6 +131,10 @@ return {
       vim.keymap.set('n', '<Leader>glc', builtin.git_commits, { noremap = true, desc = '[C]ommits from the current branch' })
       vim.keymap.set('n', '<Leader>glb', builtin.git_branches, { noremap = true, desc = '[B]ranches' })
       vim.keymap.set('n', '<Leader>glf', builtin.git_files, { noremap = true, desc = '[F]iles in the repo' })
+
+      vim.keymap.set('n', '<Leader>sm', function()
+        vim.cmd 'Telescope noice'
+      end, { noremap = true, desc = '[S]earch [M]essages from Noice' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
