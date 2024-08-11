@@ -10,7 +10,7 @@ return {
       vim.cmd 'Git status'
     end, { noremap = true, desc = '[S]tatus of current changes' })
     vim.keymap.set('n', '<Leader>gc', function()
-      vim.cmd 'Git commit -m "'
+      vim.cmd 'Git commit'
     end, { noremap = true, desc = '[C]ommit latest changes' })
     vim.keymap.set('n', '<Leader>ga', function()
       vim.cmd 'Git add %'
