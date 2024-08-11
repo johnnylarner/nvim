@@ -1,3 +1,19 @@
+local function choose_theme()
+  local handle = io.popen 'sh /Users/jamie/set-theme-based-on-sun.sh'
+  local theme = 'NIGHT' -- Default theme
+  if handle then
+    theme = handle:read '*a'
+    handle:close()
+    theme = theme:gsub('%s+', '') -- Trim any whitespace or newlines
+  else
+    print 'Failed to execute theme picker shell command'
+  end
+  if theme == 'DAY' then
+    return 'day'
+  else
+    return 'night'
+  end
+end
 return {
   -- You can easily change to a different colorscheme.
   -- Change the name of the colorscheme plugin below, and then
@@ -10,12 +26,16 @@ return {
     -- Load the colorscheme here.
     -- Like many other themes, this one has different styles, and you could load
     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-    if os.getenv 'neovim_theme' == 'light' then
+    local theme = choose_theme()
+    if theme == 'day' then
       vim.o.background = 'light' -- or "light" for light mode
     else
       vim.o.background = 'dark' -- or "light" for light mode
+      require('gruvbox').setup {
+        contrast = 'soft',
+      }
     end
-    vim.cmd [[colorscheme gruvbox]]
+    vim.cmd 'colorscheme gruvbox'
 
     -- You can configure highlights by doing something like:
     vim.cmd.hi 'Comment gui=none'
