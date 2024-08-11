@@ -122,7 +122,9 @@ return {
       })
       -- `:` cmdline setup.
       cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline {
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+        },
         sources = cmp.config.sources({
           { name = 'path' },
         }, {
