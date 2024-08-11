@@ -126,6 +126,10 @@ return {
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<Leader>sc', builtin.command_history, { noremap = true, desc = '[C]ommand history' })
       vim.keymap.set('n', '<Leader>st', builtin.git_files, { noremap = true, desc = '[T]racked files' })
+      vim.keymap.set('n', '<Leader>gls', builtin.git_status, { noremap = true, desc = '[S]tatus of current changes' })
+      vim.keymap.set('n', '<Leader>glc', builtin.git_commits, { noremap = true, desc = '[C]ommits from the current branch' })
+      vim.keymap.set('n', '<Leader>glb', builtin.git_branches, { noremap = true, desc = '[B]ranches' })
+      vim.keymap.set('n', '<Leader>glf', builtin.git_files, { noremap = true, desc = '[F]iles in the repo' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
