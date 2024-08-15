@@ -17,6 +17,8 @@ return {
         'vimdoc',
         'rust',
         'toml',
+        'svelte',
+        'typescript',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
