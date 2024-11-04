@@ -118,6 +118,7 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sh', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -130,7 +131,6 @@ return {
       vim.keymap.set('n', '<Leader>gls', builtin.git_status, { noremap = true, desc = '[S]tatus of current changes' })
       vim.keymap.set('n', '<Leader>glc', builtin.git_commits, { noremap = true, desc = '[C]ommits from the current branch' })
       vim.keymap.set('n', '<Leader>glb', builtin.git_branches, { noremap = true, desc = '[B]ranches' })
-      vim.keymap.set('n', '<Leader>glf', builtin.git_files, { noremap = true, desc = '[F]iles in the repo' })
 
       vim.keymap.set('n', '<Leader>sm', function()
         vim.cmd 'Telescope noice'
@@ -153,6 +153,13 @@ return {
           prompt_title = 'Live Grep in Open Files',
         }
       end, { desc = '[S]earch [/] in Open Files' })
+
+      vim.keymap.set('n', '<leader>sa', function()
+        builtin.find_files {
+          theme = 'dropdown',
+          hidden = true,
+        }
+      end, { desc = '[S]earch [A]ll Files' })
 
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
