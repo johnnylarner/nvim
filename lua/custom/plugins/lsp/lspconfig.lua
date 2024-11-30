@@ -24,6 +24,9 @@ return {
         },
       },
       { 'Bilal2453/luvit-meta', lazy = true },
+      {
+        'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+      },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -59,10 +62,13 @@ return {
       -- Show line diagnostics automatically in hover window
       vim.diagnostic.config {
         virtual_text = false,
-        underline = true,
       }
-      vim.o.updatetime = 250
+      require('lsp_lines').setup()
+      vim.diagnostic.config { virtual_lines = true }
+      -- Time between refreshes
+      vim.o.updatetime = 750
       vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+      vim.keymap.set('n', '<Leader>lt', require('lsp_lines').toggle, { desc = '[T]oggle LSP lines' })
 
       -- Enable easy LSP status checks
       vim.keymap.set('n', '<Leader>ld', ':LspInfo', { desc = '[D]isplay information' })

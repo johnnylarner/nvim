@@ -31,6 +31,7 @@ return {
         { '<leader>g', group = '[G]it' },
         { '<leader>gl', group = '[L]ist' },
         { '<leader>l', group = '[L]SP' },
+        { '<leader>n', group = '[N]oticifations' },
       }
     end,
   },
