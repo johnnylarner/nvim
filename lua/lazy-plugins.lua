@@ -31,6 +31,8 @@ require('lazy').setup({
 
   require 'custom/plugins/navigation/telescope',
 
+  require 'custom/plugins/navigation/marks',
+
   require 'custom/plugins/lsp/lspconfig',
 
   require 'custom/plugins/lsp/conform',
