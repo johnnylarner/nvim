@@ -132,8 +132,8 @@ return {
       vim.keymap.set('n', '<Leader>glb', builtin.git_branches, { noremap = true, desc = '[B]ranches' })
 
       vim.keymap.set('n', '<Leader>sm', function()
-        vim.cmd 'Telescope noice'
-      end, { noremap = true, desc = '[S]earch [M]essages from Noice' })
+        vim.cmd 'Telescope marks'
+      end, { noremap = true, desc = '[S]earch [M]arks' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
