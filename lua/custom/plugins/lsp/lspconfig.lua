@@ -24,9 +24,6 @@ return {
         },
       },
       { 'Bilal2453/luvit-meta', lazy = true },
-      {
-        'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-      },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -59,16 +56,9 @@ return {
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       --    function will be executed to configure the current buffer
 
-      -- Show line diagnostics automatically in hover window
-      vim.diagnostic.config {
-        virtual_text = false,
-      }
-      require('lsp_lines').setup()
-      vim.diagnostic.config { virtual_lines = true }
+      vim.diagnostic.config { virtual_text = false }
       -- Time between refreshes
       vim.o.updatetime = 750
-      vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-      vim.keymap.set('n', '<Leader>lt', require('lsp_lines').toggle, { desc = '[T]oggle LSP lines' })
 
       -- Enable easy LSP status checks
       vim.keymap.set('n', '<Leader>ld', ':LspInfo', { desc = '[D]isplay information' })
