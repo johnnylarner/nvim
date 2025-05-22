@@ -27,14 +27,14 @@ return {
     -- Like many other themes, this one has different styles, and you could load
     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
     local theme = choose_theme()
-    if theme == 'day' then
-      vim.o.background = 'light' -- or "light" for light mode
-    else
-      vim.o.background = 'dark' -- or "light" for light mode
-      require('gruvbox').setup {
-        contrast = 'soft',
-      }
-    end
+    -- if theme == 'day' then
+    --   vim.o.background = 'light' -- or "light" for light mode
+    -- else
+    vim.o.background = 'dark' -- or "light" for light mode
+    require('gruvbox').setup {
+      contrast = 'hard',
+    }
+    -- end
     vim.cmd 'colorscheme gruvbox'
 
     -- You can configure highlights by doing something like:
