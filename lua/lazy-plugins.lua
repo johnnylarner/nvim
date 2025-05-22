@@ -47,8 +47,6 @@ require('lazy').setup({
 
   require 'custom/plugins/lsp/treesitter',
 
-  require 'custom/plugins/lsp/rustanalyzer',
-
   require 'custom/plugins/lsp/typescript_lsp',
 
   require 'custom/plugins/commandline/noice',

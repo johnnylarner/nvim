@@ -199,6 +199,15 @@ return {
             },
           },
         },
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+              cargo = {
+                allFeatures = true,
+              },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -232,7 +241,7 @@ return {
           -- Without this, rustaceanvim can't find
           -- the `rust_analyzer` binary.
           -- See: https://www.reddit.com/r/neovim/comments/1c4zu2n/unwanted_rust_analyzer_setup_by_masonlspconfig/
-          rust_analyzer = function() end,
+          -- rust_analyzer = function() end,
         },
       }
     end,
