@@ -36,6 +36,7 @@ return -- lazy.nvim
       opts = {
         stages = 'fade_in_slide_out',
         render = 'wrapped-default',
+        background_colour = '#000000',
         top_down = true,
         max_height = function()
           return math.floor(vim.o.lines * 0.95)
