@@ -39,6 +39,7 @@ require('lazy').setup({
 
   require 'custom/plugins/editing/cmp',
 
+  require 'custom/plugins/editing/markdown',
   require 'custom/plugins/themes/gruvbox',
 
   require 'custom/plugins/editing/todo-comments',
