@@ -23,6 +23,11 @@ return -- lazy.nvim
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
+      vim.api.nvim_create_autocmd('BufWritePost', {
+        callback = function()
+          vim.notify('Wrote ' .. vim.fn.expand '%:p', vim.log.levels.INFO)
+        end,
+      }),
     }
   end,
   dependencies = {
