@@ -172,7 +172,7 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        gopls = {},
+        gopls = { settings = { gopls = { buildFlags = { '-tags=e2e' } } } },
 
         solidity_ls_nomicfoundation = {},
         -- pyright = {},
@@ -204,9 +204,9 @@ return {
         rust_analyzer = {
           settings = {
             ['rust-analyzer'] = {
-              cargo = {
-                allFeatures = true,
-              },
+              cargo = { features = 'all' },
+              check = { extraArgs = { '--all-features' } },
+              trace = { server = 'verbose' },
             },
           },
         },
@@ -240,10 +240,6 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
-          -- Without this, rustaceanvim can't find
-          -- the `rust_analyzer` binary.
-          -- See: https://www.reddit.com/r/neovim/comments/1c4zu2n/unwanted_rust_analyzer_setup_by_masonlspconfig/
-          -- rust_analyzer = function() end,
         },
       }
     end,
