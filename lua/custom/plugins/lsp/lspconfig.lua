@@ -185,8 +185,8 @@ return {
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-        -- svelte = {},
-        -- terraformls = {},
+        svelte = {},
+        terraformls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -226,6 +226,7 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'tflint', -- Used for terraform code
+        'prettier',
         -- 'sqls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }

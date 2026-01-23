@@ -30,9 +30,9 @@ return {
     -- if theme == 'day' then
     --   vim.o.background = 'light' -- or "light" for light mode
     -- else
-    vim.o.background = 'dark' -- or "light" for light mode
+    vim.o.background = 'light' -- or "light" for light mode
     require('gruvbox').setup {
-      contrast = 'hard',
+      contrast = 'soft',
     }
     -- end
     vim.cmd 'colorscheme gruvbox'
