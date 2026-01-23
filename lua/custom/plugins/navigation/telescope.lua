@@ -112,6 +112,7 @@ return {
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
       pcall(require('telescope').load_extension, 'noice')
+      pcall(require('telescope').load_extension 'grapple')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -119,7 +120,6 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>sh', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -133,7 +133,7 @@ return {
       vim.keymap.set('n', '<Leader>glb', builtin.git_branches, { noremap = true, desc = '[B]ranches' })
 
       vim.keymap.set('n', '<Leader>sm', function()
-        vim.cmd 'Telescope marks'
+        vim.cmd 'Telescope grapple tags'
       end, { noremap = true, desc = '[S]earch [M]arks' })
 
       -- Slightly advanced example of overriding default behavior and theme

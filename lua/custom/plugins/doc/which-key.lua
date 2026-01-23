@@ -33,6 +33,7 @@ return {
         { '<leader>gl', group = '[L]ist' },
         { '<leader>l', group = '[L]SP' },
         { '<leader>n', group = '[N]oticifations' },
+        { '<leader>n', group = '[M]arks' },
       }
     end,
   },
