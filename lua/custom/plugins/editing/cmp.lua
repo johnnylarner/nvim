@@ -123,7 +123,16 @@ return {
       -- `:` cmdline setup.
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline {
-          ['<CR>'] = cmp.mapping.confirm { select = true },
+          -- Press ctrl + enter to select the first item.
+          -- Otherwise actively select the option
+          ['<C-CR>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.confirm { select = true }
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'c', false)
+            else
+              fallback()
+            end
+          end, { 'c' }),
         },
         sources = cmp.config.sources({
           { name = 'path' },
