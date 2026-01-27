@@ -25,6 +25,8 @@ require('lazy').setup({
 
   require 'custom/plugins/git/gitsigns',
 
+  require 'custom/plugins/git/lazygit',
+
   require 'custom/plugins/doc/which-key',
 
   require 'custom/plugins/navigation/oil',
