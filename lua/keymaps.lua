@@ -42,6 +42,16 @@ end, { desc = 'Move focus to the upper window' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+-- Unmap leader key in terminal mode to prevent input delay
+vim.api.nvim_create_autocmd({ 'TermOpen', 'TermEnter', 'BufEnter' }, {
+  pattern = 'term://*',
+  callback = function()
+    if vim.bo.buftype == 'terminal' then
+      vim.keymap.set('t', '<Space>', '<Space>', { buffer = true, nowait = true })
+    end
+  end,
+})
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
