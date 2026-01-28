@@ -30,7 +30,6 @@ return {
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>g', group = '[G]it' },
-        { '<leader>gl', group = '[L]ist' },
         { '<leader>l', group = '[L]SP' },
         { '<leader>n', group = '[N]oticifations' },
         { '<leader>n', group = '[M]arks' },
