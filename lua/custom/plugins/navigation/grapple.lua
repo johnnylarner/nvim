@@ -17,7 +17,7 @@ return {
     {
       '<leader>mr',
       function()
-        require('grapple').tag {}
+        require('grapple').untag {}
       end,
       desc = '[R]emove file under cursor from tags',
     },
