@@ -39,6 +39,21 @@ vim.keymap.set({ 'n', 't' }, '<C-k>', function()
   vim.cmd.wincmd 'k'
 end, { desc = 'Move focus to the upper window' })
 
+-- Toggle j/k between visual lines (gj/gk) and actual lines
+local visual_lines = false
+vim.keymap.set('n', '<leader>tw', function()
+  visual_lines = not visual_lines
+  if visual_lines then
+    vim.keymap.set('n', 'j', 'gj', { desc = 'Move down by visual line' })
+    vim.keymap.set('n', 'k', 'gk', { desc = 'Move up by visual line' })
+    vim.notify('Visual line navigation ON', vim.log.levels.INFO)
+  else
+    vim.keymap.del('n', 'j')
+    vim.keymap.del('n', 'k')
+    vim.notify('Visual line navigation OFF', vim.log.levels.INFO)
+  end
+end, { desc = '[T]oggle [W]rap navigation (j/k ↔ gj/gk)' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
